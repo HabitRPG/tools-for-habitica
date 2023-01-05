@@ -50,9 +50,3 @@ A stand-alone JavaScript-enabled web page that allows users to bulk update task
 data such as tags, difficulty, attributes, and due date.  
 
 --------------------------------------------
-
-Contact:
-
-	Alys (Alice Harris)
-	http://habitica.fandom.com/wiki/User:LadyAlys
-	lady_alys@oldgods.net

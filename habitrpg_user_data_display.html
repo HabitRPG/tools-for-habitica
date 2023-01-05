@@ -10,9 +10,9 @@
 This code is licenced under the same terms as Habitica:
     https://raw.githubusercontent.com/HabitRPG/habitrpg/develop/LICENSE
 
-https://github.com/Alys/tools-for-habitrpg/blob/master/habitrpg_user_data_display.html
+https://github.com/habitrpg/tools-for-habitica/blob/master/habitrpg_user_data_display.html
 AND required JavaScript libraries:
-https://github.com/Alys/tools-for-habitrpg/blob/master/js-for-habitrpg_user_data_display.tar.gz
+https://github.com/habitrpg/tools-for-habitica/blob/master/js-for-habitrpg_user_data_display.tar.gz
 
 https://oldgods.net/habitrpg/habitrpg_user_data_display.html
     or http://is.gd/hrpguserdata
@@ -34,7 +34,7 @@ with "TO ADD NEW SECTION" and follow the (brief) instructions
 you'll find there.
 
 
-XXX TODO: Most Recent Streak https://github.com/Alys/tools-for-habitrpg/issues/34
+XXX TODO: Most Recent Streak https://github.com/habitrpg/tools-for-habitica/issues/34
 
 -->
 
@@ -52,7 +52,7 @@ XXX TODO: Most Recent Streak https://github.com/Alys/tools-for-habitrpg/issues/3
 
 
     <meta name="description" content="Habitica User Data Display Tool" />
-    <meta name="author" content="Alys (Alice Harris) lady_alys@oldgods.net" />
+    <meta name="author" content="HabitRPG Inc." />
 
     <link href="js/DataTables/media/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
     <link href="js/DataTables/extras/ColumnFilterWidgets/media/css/ColumnFilterWidgets.css" rel="stylesheet" type="text/css" />
@@ -281,14 +281,6 @@ $('#userApiDetailsForm').submit(function(event){
 //////////////////////////////////////////////////////////////////////
 function fetchData() {
     if (debug) console.log('debug 2');
-    if (userId == '3e595299-3d8a-4a10-bfe0-88f555e4aa0c' || // AliceHarris
-        userId == 'e7b5d1e2-3b6e-4192-b867-8bafdb03eeec'    // Ryan
-    ) {
-        $('#specialMessage').show();
-    }
-    else {
-        $('#specialMessage').hide();
-    }
     $('#loading #serverName').text(serverName);
     $('#loading .good').show();
     $('#loading .bad' ).hide();
@@ -936,11 +928,6 @@ function renderFormattedText(text, options) {
 function userDataInHeader() {
     var displayName =
             renderFormattedText(user.profile.name, {'removeParaTags':true});
-    if (userId == '3e595299-3d8a-4a10-bfe0-88f555e4aa0c' || // AliceHarris
-        userId == 'e7b5d1e2-3b6e-4192-b867-8bafdb03eeec'    // Ryan
-    ) {
-        displayName = 'A valiant Github warrior';
-    }
     $('#headerExtras').html('<div id="userNameDisplay">' +
             displayName +
             '</div>' +
@@ -2284,11 +2271,6 @@ randomTodoHtml
                 };
             if (quest.content && quest.content.boss) {
                 var label = 'Est. Damage to Party';
-                if (userId == '3e595299-3d8a-4a10-bfe0-88f555e4aa0c' ||
-                    userId == 'e7b5d1e2-3b6e-4192-b867-8bafdb03eeec'    // Ryan
-                ) {
-                    label = 'Est.Dam.2Part. :P';
-                }
                 DASHBOARD.damageToParty = {'label': label,
                     'hoverText': 'health loss your party will take ' +
                          'overnight from your quest boss due to your own ' +
@@ -5793,8 +5775,8 @@ ul#tableOfContents > li {
 </head>
 <body><div id="innerBody">
 
-	<h1><a href="https://habitica.com/">Habitica</a> User Data Display Tool <img src="js/emoji-images/pngs/broken_heart.png" width="32px" />
-    <span class="showHideToggle" data-target="versionChanges" data-closemainsections="true">(v9.18)</span></h1><!-- VERSION TOGGLE -->
+	<h1><a href="https://habitica.com/">Habitica</a> User Data Display Tool
+    <span class="showHideToggle" data-target="versionChanges" data-closemainsections="true">(v10.0)</span></h1><!-- VERSION TOGGLE -->
 <div id="headerExtras"></div>
 <hr class="clear" />
 <div id="subscriptionWarningFull" class="errorMessage"></div>
@@ -5824,19 +5806,26 @@ ul#tableOfContents > li {
 <div id="versionChanges" class="hide"><!-- VERSION SECTION -->
     <h2>Version History</h2>
     <dl>
+        <dt>10.0 <span class="date">2023-01-05</span></dt>
+        <dd><ul>
+            <li>Features:
+                <ul>
+					<li>First Release as official tool</li>
+                </ul>
+            </li>
+        </ul></dd>
 
         <dt>9.18 <span class="date">2022-12-29</span></dt>
         <dd><ul>
             <li>Features:
                 <ul>
-					<li>Removed "Official" from the page name and added the <code>:broken_heart:</code> emoji because Habitica's staff <a href="https://www.reddit.com/r/habitica/comments/zdr2la/the_staff_is_taking_moderation_inhouse_and_so_are/">fired the moderation team</a> and <a href="https://www.reddit.com/r/habitica/comments/zmsz48/habitica_received_some_troubling_reports_about/">treated the Socialites with disrespect and cruelty</a>.</li>
 					<li>Renamed the <strong>Habit History</strong> section to <strong>Habit History List</strong>.</li>
-					<li>Added the <strong>Habit History Table</strong> section from <a href="https://github.com/Alys/tools-for-habitrpg/pull/62">PR 62 by BlakeTNC</a>. (I changed the "chart" terminology from that PR to "table" because "chart" was already used by the Habit Trends section.)</li>
+					<li>Added the <strong>Habit History Table</strong> section from <a href="https://github.com/habitrpg/tools-for-habitica/pull/62">PR 62 by BlakeTNC</a>. (I changed the "chart" terminology from that PR to "table" because "chart" was already used by the Habit Trends section.)</li>
                 </ul>
             </li>
             <li>Code:
                 <ul>
-					<li>Renamed function formatDateFromUTC to formatIsoDateString (from <a href="https://github.com/Alys/tools-for-habitrpg/pull/62">PR 62 by BlakeTNC</a>).</li>
+					<li>Renamed function formatDateFromUTC to formatIsoDateString (from <a href="https://github.com/habitrpg/tools-for-habitica/pull/62">PR 62 by BlakeTNC</a>).</li>
 					<li>Renamed function habitHistory to habitHistoryList.</li>
                 </ul>
             </li>
@@ -6373,7 +6362,7 @@ ul#tableOfContents > li {
             </li>
             <li>Code:
                 <ul>
-                    <li><a href="https://github.com/donoftime">donoftime</a> has added a mock ajax framework to assist with local development and has placed instructions for using it in <a href="https://github.com/Alys/tools-for-habitrpg/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.</li>
+                    <li><a href="https://github.com/donoftime">donoftime</a> has added a mock ajax framework to assist with local development and has placed instructions for using it in <a href="https://github.com/habitrpg/tools-for-habitica/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.</li>
                 </ul>
             </li>
         </ul></dd>
@@ -6984,7 +6973,7 @@ ul#tableOfContents > li {
             </li>
             <li>Code:
                 <ul>
-                    <li>To run this page locally, you must now install <a href="http://datatables.net/">Data Tables</a> and <a href="http://legacy.datatables.net/extras/thirdparty/ColumnFilterWidgets/DataTables/extras/ColumnFilterWidgets/">ColumnFilterWidgets</a>. A cut-down version of both (e.g., no documentation) can be found <a href="https://github.com/Alys/tools-for-habitrpg/blob/master/js--for--habitrpg_user_data_display.tar.gz">on github</a>.</li>
+                    <li>To run this page locally, you must now install <a href="http://datatables.net/">Data Tables</a> and <a href="http://legacy.datatables.net/extras/thirdparty/ColumnFilterWidgets/DataTables/extras/ColumnFilterWidgets/">ColumnFilterWidgets</a>. A cut-down version of both (e.g., no documentation) can be found <a href="https://github.com/habitrpg/tools-for-habitica/blob/master/js--for--habitrpg_user_data_display.tar.gz">on github</a>.</li>
                 </ul>
             </li>
         </ul></dd>
@@ -7089,7 +7078,7 @@ ul#tableOfContents > li {
             <li><span class="subheading">Tasks Untagged</span>: If you have any Habits, Dailies, To Do's, or Rewards that have not been <a href="http://habitica.fandom.com/wiki/Tags">tagged</a> they will be listed. This will be useful to you only if you prefer to tag all your tasks and are looking for any you have missed. This section is shown only if you have untagged tasks.</li>
             <li><span class="subheading">Habit Trends</span>: An interactive chart that provides a visual representation of the trends in your Habits. It gives you an idea of which Habits you are reinforcing, and which are being neglected.</li>
             <li><span class="subheading">Habit History List</span> (previously <span class="subheading">Habit History</span>): This shows some of the dates and times you recently clicked on your Habits. But note the disclaimer you'll see at the top of the list! Most of your clicks can not be shown.</li>
-            <li><span class="subheading">Habit History Table</span> (created by <a href="https://github.com/Alys/tools-for-habitrpg/pull/62">BlakeTNC</span>): This shows summarised information from the Habit History List section, in a tablular format.</li>
+            <li><span class="subheading">Habit History Table</span> (created by <a href="https://github.com/habitrpg/tools-for-habitica/pull/62">BlakeTNC</span>): This shows summarised information from the Habit History List section, in a tablular format.</li>
             <li><span class="subheading">Dailies History</span>: A spreadsheet-like view showing the days on which you did and did not tick off your Dailies.</li>
             <li><span class="subheading">Dailies Incomplete</span>: A list of Dailies scheduled for today that you have not yet completed, and the estimated damage you will take from each one. It also has a separate list of <a href="http://habitica.fandom.com/wiki/Dailies#Grey_Dailies">Grey Dailies</a> that have not been completed (you don't need to do those today, but you might want to for extra rewards).</li>
             <li><span class="subheading">To Do's with Dates</span>: A list of all To Do's that have been given due dates, sorted by date. If there are any To Do's due today or overdue, a red tile will appear in the dashboard to tell you how many there are. This section is shown only if you have dated To Do's.</li>
@@ -7181,7 +7170,6 @@ I dream of pie-charts for tracking my weekly and monthly process. Like x% healt-
        <p>Regardless of what bugs there might be, this page cannot damage your account. It does not contain any code that could result in any changes being made on Habitica.</p>
 
        <h2>Help and Contact Details</h2>
-       <p>This page has been created by <a href="http://habitica.fandom.com/wiki/User:LadyAlys">Alys</a> (a.k.a. Alice Harris). If you have questions, problems, or suggestions, you're welcome to contact me, although I cannot guarantee that I'll always be able to spend a lot of time on this. Email to <a href="mailto:lady_alys@oldgods.net">lady_alys@oldgods.net</a> is the best way to reach me for this tool.</p>
 
         <p>If you have general questions about Habitica, post them to <a href="https://habitica.com/groups/tavern">Tavern Chat</a> or the <a href="https://habitica.com/groups/guild/5481ccf3-5d2d-48a9-a871-70a7380cee5a">Habitica Help: Ask a Question</a> Guild.</p>
     </div>
