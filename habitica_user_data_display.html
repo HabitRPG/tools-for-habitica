@@ -6862,7 +6862,6 @@ ul#tableOfContents > li {
                 <ul>
                     <li>Privacy and security notes (also related comments within the code)</li>
                     <li>What's On This Page? (descriptions of each feature)</li>
-                    <li>Possible Future Features</li>
                     <li>Suspected Bugs (no support for old browsers; mobile support unknown)</li>
                     <li>Help and Contact Details</li>
                 </ul>
@@ -6977,46 +6976,6 @@ ul#tableOfContents > li {
             <li><a href="habitrpg_user_data_display.html?sectionOpen=subscriptionDataSection&uuid=">Subscription Data</a></li>
         </ul>
         <p>To have your User ID specified automatically as well, click on one of those links, then edit the URL in your browser's address bar to add your User ID at the end, then bookmark that. For example, if your User ID is <em>12345678-90ab-40a4-cdef-1234567890ab</em> and you want the "Task Overview" section to be open when you log in, you would bookmark this URL: <br /><em>https://tools.habitica.com/habitrpg_user_data_display.html?sectionOpen=taskOverviewSection&uuid=12345678-90ab-40a4-cdef-1234567890ab</em></p>
-
-        <h2>Possible Future Features</h2>
-        <ul>
-            <li>Display checklists and notes for tasks.</li>
-            <li>For relevant Skills And Buffs, show how to increase the chance of a critical hit happening.</li>
-            <li>Add percentages to Task Statistics.
-<!--
-<span class="subheading">Task Stats Percentages</span>: percentage of tasks assigned to each of CON, INT, PER, STR (<a href="http://habitica.fandom.com/wiki/Advanced_Options#Stats">wiki</a> <a href="http://habitica.fandom.com/wiki/Automatic_Allocation">links</a>)
--->
-</li>
-            <li>Hide information about drops for any players who have not yet had drops enabled.</li>
-            <li>Show the potential damage you would do to a boss even when you are not on a quest (but don't display it in the dashboard). Would help people who are questioning whether or not they're ready for a boss fight.</li>
-            <li>For Dailies History, improve the scrolling and the visibility and fixedness of the task names.</li>
-            <li>For Task Overview, add an invisible column for emoji and allow drop-down menu filtering using that column.</li>
-            <li>For Task Overview, show how much XP, GP, and MP you will gain from completing each task.</li>
-            <li>Add tags to the Task Overview and possibly other sections.</li>
-            <li>For Task Overview and the Dailies sections, show the dates that tasks were last completed to assist with keeping track of monthly and bi-weekly tasks.</li>
-            <li>Modify the "Random To Do" function to also display a random Daily from those that have not been completed.</li>
-            <li>Create a "Random Task" button that displays a randomly-selected To Do and Daily near the top of the page. Allow the button to be clicked to show different tasks without the whole page having to be refetched. Remove the random task currently shown at the bottom of the Task Overview section.</li>
-            <li>For Habit History List and Untagged Tasks, apply the "longContent" class if there are more than x number of items.</li>
-<!--
-I dream of pie-charts for tracking my weekly and monthly process. Like x% healt-related tasks, x% mental-related tasks etc or: did more Habits then last week or: how many red/orange/yellow To Do's are done this month etc. --lightsaber
-
-@lightsaber Now those are some interesting ideas! Some I could add to my tool (anything that uses current data, or very recent data - basically any data available from the [API](https://habitica.com/static/api) ). Others could be created with a tool that also reads [exported historical data](https://habitica.com/user/settings/data-export), although the level of detail that you might want might not be stored permanently in that data. If only I had unlimited time....
--->
-            </li>
-            <li>Prevent fatal failures when unexpected conditions occur (try/catch or similar everywhere).</li>
-            <li>List how many preferred food items are needed to turn each pet into a mount.</li>
-            <li>Clairvoyance: Show which Dailies will be due tomorrow. <!-- when done reply to Daniel von Pazatka Lipinski on the Trello card DAILIES v. 3 (Dailies Minimum, Does-Not-Apply Button, Weekly Rolling Over, Streak History) --></li>
-            <li>Display how many and which Enchanted Armoire items you do not already have.</li>
-            <li>Improve how <strong>Equipment Recommendations</strong> handles Enchanted Armoire items. <!-- Timoteo32:    Hey darlin, I just wanted to let you know about a possible error I noticed in the User Data Tool. Under "Equipment Recommendations" my Soothing Lunar Scepter seems to be getting analyzed wrong. The stats listed are correct, but then it qualifies it as "middling" instead of "best" even though it's my best item that gives Int and Con for a Primary Weapon. I don't know how the ratings are actually done, so maybe it's "working" but misunderstanding what I'm asking. :P I think it used to show up, so either something changed or another weapon I've picked up since is trumping it somehow. I can get you screenshots if you want. :)   // me: Ugh, bugs, I hate them. Screenshots aren't necessary because I'll have much the same equipment as you. I think that one is being pushed out of the "best" category by the Blue Floppy Hat, because they have much the same stats. However both should be considered best because you can wear both at the same time. // That table was designed long before the Armoire existed and it's not holding up well under the strain of the extra, multi-Stat gear. I'll have to make modifications to the code. Any day now........ // Thanks for letting me know! I would likely never have noticed otherwise. // --></li>
-            <li>Upgrade <a href="https://datatables.net/upgrade/1.10">Data Tables</a> to the latest version, adjust all calls to it as needed and test thoroughly.
-<!--
-- Use a CDN (https://datatables.net/manual/installation#CDN) instead of keeping a local copy. Remove the local copy from js-for-habitrpg_user_data_display.tar.gz
-- Consider cookies to save state https://datatables.net/examples/basic_init/state_save.html
-- (too slow?)  show/hide notes: https://datatables.net/examples/server_side/row_details.html
--->
-</li>
-            <li><span class="subheading">Other Stuff?</span>: Send me ideas! Contact details are below.</li>
-        </ul>
 
        <h2>Known Bugs</h2>
        <p>Internet Explorer will produce odd results if you use the "Re-Fetch Data" button. Reloading the page will fix the problem. Avoid using that button. Avoiding Internet Explorer will also work.</p>
