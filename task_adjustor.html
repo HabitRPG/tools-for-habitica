@@ -14,9 +14,10 @@ https://github.com/habitrpg/tools-for-habitica/blob/master/task_editor.html
 AND required JavaScript libraries: // XXX_SOON needed?
 https://github.com/habitrpg/tools-for-habitica/blob/master/js-for-task_editor.tar.gz
 
-https://oldgods.net/habitrpg/task_adjustor.html
+https://tools.habitica.com/task_adjustor.html
 
 Contributors:
+    Phillip Thelen, phillip@habitica.com https://github.com/phillipthelen
     Alys (Alice Harris), lady_alys@oldgods.net https://github.com/Alys
 
 -->
@@ -1380,176 +1381,11 @@ function createTaskOverviewTable() {
 });
 </script>
 
-<!-- XXX_SOON purge -->
+<link rel="stylesheet" href="tools.css">
 <style>
-
-/*********************************************************************
-****   Page-wide   ***************************************************
-*********************************************************************/
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    background-color: rgb(173, 208, 215);
-}
-#innerBody {
-    margin: 20px;
-    padding: 5px 20px 30px 20px;
-    background-color: rgb(242, 242, 230);
-}
-#loading {
-    margin-right: 30px;
-    margin-left: 30px;
-    color: orange;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-#loading ul {
-    font-size: 0.8em;
-}
-#loading ul a {
-    color: orange;
-}
-
-.warning {
-    color: orange;
-    font-weight: bold;
-}
-
-.notApplicable {
-    color: grey;
-    font-style: italic;
-}
-
-
-hr {
-    width: 95%;
-}
-hr.padded {
-    margin-top:    1em;
-    margin-bottom: 2em;
-}
-
-.show {
-    display: block;
-}
-.hide {
-    display: none;
-}
-.clear {
-    clear: both;
-}
-
-.subheading {
-    font-weight: bold;
-}
-.highlight {
-    font-weight: bold;
-}
-.lowlight { /* like highlight but less so */
-    font-style: italic;
-}
-.explanation {
-    font-style: italic;
-}
-abbr {
-    border-bottom: 1px dashed black;
-}
-img.emoji {
-    margin-bottom: -0.25em;
-}
-.forCopyPaste {
-    /* used to add blank lines that we want when copying text to clipboard,
-       but we don't want to see extra whitespace on the screen */
-    margin-top: -1em;
-}
-ul.padded > li {
-    padding: 3px 0;
-}
-
-.gearList .item .stats {
-    font-variant: small-caps;
-}
-.gearList .item .key {
-    display: none;
-}
-
-
-.coloured {
-    display: inline-block;
-    width: 5.5em;
-    height: 3em;
-    padding-top: .7em;
-}
-.colourBrightBlue { background-color: rgb(209,226,248); }
-.colourBlueGrey   { background-color: rgb(216,230,232); }
-.colourGreen      { background-color: rgb(222,237,219); }
-.colourYellow     { background-color: rgb(255,244,216); }
-.colourOrange     { background-color: rgb(254,234,216); }
-.colourRed        { background-color: rgb(250,214,214); }
-.colourDarkRed    { background-color: rgb(240,197,190); }
-
-.neutral {
-    background-color: #fffbd0; /* yellow */
-}
-.danger {
-    background-color: #ffcccc; /* red */
-    /* background-color: #F5A9A9; */ /* darker red */
-}
-.safe {
-    background-color: #bdd8fc; /* blue */
-    /* green+red and green+yellow are not good for colour-blind people */
-}
-
-
-/*********************************************************************
-****   Page-wide Show/Hide Toggling   ********************************
-*********************************************************************/
-.mainSectionClose,
-.showHideToggle,     /* for toggling by id */
-.showHideToggleClass /* for toggling by class */
-{
-    cursor: pointer;
-    text-decoration: underline;
-    color: purple;
-}
-.deemphasised {
-    color: black;
-    text-decoration-style: dotted;
-    text-decoration-color: blue;
-}
-
-.closer { /* as in "a thing that closes", not "nearer" */
-    margin-top: 30px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-.closer:hover {
-    border: 1px dashed lightgrey;
-}
-.developerData {
-    font-family: monospace;
-}
-
-
 /*********************************************************************
 ****   Header   ******************************************************
 *********************************************************************/
-h1 {
-    float: left;
-}
-h1>a:first-child { /* "Habitica" link in header */
-    color: black;
-    text-decoration: none;
-}
-h1>a:first-child:hover { /* "Habitica" link in header */
-    text-decoration: underline;
-}
-h1 span {
-    font-size: 0.5em;
-}
-h2 {
-    margin-top: 30px;
-}
 
 #headerExtras .showHideToggle {
     white-space: nowrap;
@@ -1771,7 +1607,7 @@ h2 {
         <ul class="padded">
             <li>Please reload the page and then check that your <a href="https://habitica.com/user/settings/api">User ID and API Token</a> are correct.</li>
             <li>If you're using Internet Explorer, try another browser. <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> will be more reliable.</li>
-            <li>If the page's URL starts with "http://" change it to start with "https://" (or just use <a href="https://oldgods.net/habitrpg/habitrpg_user_data_display.html">this correct link</a>).</li>
+            <li>If the page's URL starts with "http://" change it to start with "https://" (or just use <a href="https://tools.habitica.com/habitrpg_user_data_display.html">this correct link</a>).</li>
             <li>If neither of those help, contact me! See <strong>"Help and Contact Details"</strong> at the bottom of this page.</li>
         </ul>
     </div>
@@ -1887,7 +1723,7 @@ h2 {
 
 <p><a id="taskOverviewExplanationToggle" class="showHideToggle" data-target="taskOverviewExplanation" data-linktext="explanation">show explanation</a></p>
 <div id="taskOverviewExplanation" class="hide">
-<p style="font-style: italic;">Before using this tool, it's recommended to first you export your data to a backup file using the Habitica website's <strong>Data > Export Data > User Data > JSON</strong> feature and then afterwards, check that your changes are correct in Habitica. If any problems occur, email <a href="mailto:lady_alys@oldgods.net">lady_alys@oldgods.net</a> for help.<br /></p>
+<p style="font-style: italic;">Before using this tool, it's recommended to first you export your data to a backup file using the Habitica website's <strong>Data > Export Data > User Data > JSON</strong> feature and then afterwards, check that your changes are correct in Habitica.<br /></p>
 <p>The table below shows your tasks (Habits, Dailies, To-Dos, and Rewards) with some of their settings.</p>
 <p>Click on any setting that is <span class="showHideToggleClass deemphasised" style="cursor:auto">underlined like this</span> to see buttons for changing it. <strong>As soon as you have clicked on a button, the change will be sent to Habitica. For challenge tasks, most settings can't be changed.</strong></p>
 <p>When a task has been changed, <span class="uncertain">its background will change to this colour</span>. This indicates that the other information presented for that task might now be <strong>incorrect</strong>. For example, if you change the Start Date for a Daily, the "due today" field will probably be incorrect. Filtering will also not use the new information. To see correct data, use the "Re-Fetch Data" button at the top of the page. However, you don't <strong>have</strong> to fetch data immediately - you can first edit other fields for that task.</p>
@@ -1933,7 +1769,6 @@ h2 {
             <ul>
             <li><strong>If you modify your information on this page,
             your changes will be saved to your Habitica account.</strong>
-            <!-- Be aware that if this page contains bugs, then the data in your Habitica account might be damaged or deleted. I recommend that before using this page, you export your data to a backup file using the Habitica website's <strong>Data > Export Data > User Data > JSON</strong> feature. If any problems occur, email <a href="mailto:lady_alys@oldgods.net">lady_alys@oldgods.net</a> for help.--></li>
             <!-- <li>If you access this page from the Data menu on the Habitica website, your User ID will be automatically added to the form above.</li> -->
             <li>Your API Token is a password - do not share it with anyone,
             not even the maintainer of this page if you are seeking help.</li>

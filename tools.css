@@ -1,0 +1,169 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    background-color: #6133B4;
+    color: #34313A;
+}
+#innerBody {
+    margin: 20px;
+    padding: 5px 20px 30px 20px;
+    background-color: #F6F4FC;
+}
+#loading {
+    margin-right: 30px;
+    margin-left: 30px;
+    color: orange;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#loading ul {
+    font-size: 0.8em;
+}
+#loading ul a {
+    color: orange;
+}
+#loading .details {
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+a {
+    color: #6133b4;
+}
+
+.narrowContent {      /* The data should be as wide as the user's window   */
+    max-width: 500px; /* but some explanatory paragraphs should be narrow. */
+}
+
+
+hr {
+    width: 95%;
+}
+hr.padded {
+    margin-top:    1em;
+    margin-bottom: 2em;
+}
+
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.clear {
+    clear: both;
+}
+
+.subheading {
+    font-weight: bold;
+}
+.highlight {
+    font-weight: bold;
+}
+.lowlight { /* like highlight but less so */
+    font-style: italic;
+}
+.explanation {
+    font-style: italic;
+}
+.errorMessage {
+    color: orange;
+    font-size: 18px;
+    font-weight: bold;
+}
+abbr {
+    border-bottom: 1px dashed black;
+}
+img.emoji {
+    margin-bottom: -0.25em;
+}
+.forCopyPaste {
+    /* used to add blank lines that we want when copying text to clipboard,
+       but we don't want to see extra whitespace on the screen */
+    margin-top: -1em;
+}
+ul.padded > li {
+    padding: 3px 0;
+}
+
+p.taskName, p.taskNote {
+    margin-top:    0.1em;
+    margin-bottom: 0;
+}
+
+.gearList .item .stats {
+    font-variant: small-caps;
+}
+.gearList .item .key {
+    display: none;
+}
+
+
+.coloured {
+    display: inline-block;
+    width: 5.5em;
+    height: 3em;
+    padding-top: .7em;
+}
+.colourBlue       { background-color: #a9dcf6; }
+.colourTeal       { background-color: #8eedf6; }
+.colourGreen      { background-color: #77f4c7; }
+.colourYellow     { background-color: #fedead; }
+.colourOrange     { background-color: #ffc8a7; }
+.colourRed        { background-color: #ffb6b8; }
+.colourMaroon     { background-color: #f19595; }
+
+.neutral {
+    background-color: #fcf3e5; /* yellow */
+}
+.danger {
+    background-color: #F7EDED; /* red */
+    /* background-color: #F5A9A9; */ /* darker red */
+}
+.safe {
+    background-color: #EEF5F9; /* blue */
+    /* green+red and green+yellow are not good for colour-blind people */
+}
+
+h1 {
+    float: left;
+}
+h1>a:first-child { /* "Habitica" link in header */
+    color: black;
+    text-decoration: none;
+}
+h1>a:first-child:hover { /* "Habitica" link in header */
+    text-decoration: underline;
+}
+h1 span {
+    font-size: 0.5em;
+}
+h2 {
+    margin-top: 30px;
+}
+
+.mainSectionClose,
+.showHideToggle,     /* for toggling by id */
+.showHideToggleClass /* for toggling by class */
+{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #925CF3;
+}
+.deemphasised {
+    color: black;
+    text-decoration-style: dotted;
+    text-decoration-color: blue;
+}
+
+.closer { /* as in "a thing that closes", not "nearer" */
+    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.closer:hover {
+    border: 1px dashed lightgrey;
+}
+.developerData {
+    font-family: monospace;
+}

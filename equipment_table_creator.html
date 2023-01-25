@@ -12,7 +12,7 @@ This page outputs the wikia code for creating tables displaying the Equipment Ta
 
 It's primarily written for the English language wiki (http://habitica.fandom.com/wiki/)
 but can also be used for other languages by specifying the language code in the URL like this:
-    https://oldgods.net/habitrpg/equipment_table_creator.html?language=en
+    https://tools.habitica.com/equipment_table_creator.html?language=en
 That will cause Habitica's official content translations to be used.
 
 For texts inserted by this page (e.g., table headers), additional
@@ -28,9 +28,10 @@ This code is licenced under the same terms as Habitica:
 
 https://github.com/habitrpg/tools-for-habitica/blob/master/equipment_table_creator.html
 
-https://oldgods.net/habitrpg/equipment_table_creator.html
+https://tools.habitica.com/equipment_table_creator.html
 
 Contributors:
+    Phillip Thelen, phillip@habitica.com https://github.com/phillipthelen
     Alys (Alice Harris), lady_alys@oldgods.net
     Jazzis (Yuri Mashukov), jazzis18@gmail.com (Russian translation and significant code improvements to enable translations)
     Ender_Kerman (https://github.com/EnderKerman) (Chinese translation and code improvements)
@@ -452,15 +453,14 @@ var translationInstructions =    // Do not translate this into other languages. 
     '<p>' +
         'If you would like to use this tool to create the tables for your own language\'s version of the wiki, add your language\'s code to the URL. ' +
         'For example, for the Russian ("ru") version you would use this URL:<br />' +
-        '<a href="https://oldgods.net/habitrpg/equipment_table_creator.html?language=ru">' +
-            'https://oldgods.net/habitrpg/equipment_table_creator.html?<strong>language=ru</strong>' +
+        '<a href="https://tools.habitica.com/equipment_table_creator.html?language=ru">' +
+            'https://tools.habitica.com/equipment_table_creator.html?<strong>language=ru</strong>' +
         '</a>' +
-        '<br />Habitica\'s official translations will then be used by this page. ' +
-        'Some additional strings will need to be translated too (e.g., for the table headings) so contact Alys at lady_alys@oldgods.net to discuss that.' +
+        '<br />Habitica\'s official translations will then be used by this page. '
     '</p>' +
     '<p>So far support exists for the languages below but others can be added!</p>' +
-    '<ul><li><a href="https://oldgods.net/habitrpg/equipment_table_creator.html?language=ru">Russian</a></li></ul>' +
-    '<ul><li><a href="https://oldgods.net/habitrpg/equipment_table_creator.html?language=zh">Chinese(Simplified)</a></li></ul>'
+    '<ul><li><a href="https://tools.habitica.com/equipment_table_creator.html?language=ru">Russian</a></li></ul>' +
+    '<ul><li><a href="https://tools.habitica.com/equipment_table_creator.html?language=zh">Chinese(Simplified)</a></li></ul>'
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -1453,9 +1453,6 @@ function parseData() {
     armoireTable += '</textarea>';
 
     var htmlEnd = '';
-    if (releaseDateNeeded) {
-        htmlEnd  += '<p>NOTES FOR ALYS: The items below need their release dates to be added to this tool:<br />' + releaseDateNeeded + '</p>';
-    }
     if (warnings) htmlEnd += '<p>WARNING:<br />' + warnings + '</p>';
     if (TEST_MODE) {
         htmlEnd += 'END OF PAGE ' + new Date();
@@ -1599,130 +1596,7 @@ function getTemplateName(key) {
 });
 </script>
 
-<style>
-/*********************************************************************
-****   Page-wide   ***************************************************
-*********************************************************************/
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    background-color: rgb(173, 208, 215);
-}
-#innerBody {
-    margin: 20px;
-    padding: 5px 20px 30px 20px;
-    background-color: rgb(242, 242, 230);
-}
-#loading {
-    margin-right: 30px;
-    margin-left: 30px;
-    color: orange;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-#loading ul {
-    font-size: 0.8em;
-}
-#loading ul a {
-    color: orange;
-}
-
-
-hr {
-    width: 95%;
-}
-hr.padded {
-    margin-top:    1em;
-    margin-bottom: 2em;
-}
-
-.show {
-    display: block;
-}
-.hide {
-    display: none;
-}
-.clear {
-    clear: both;
-}
-
-.subheading {
-    font-weight: bold;
-}
-.highlight {
-    font-weight: bold;
-}
-.lowlight { /* like highlight but less so */
-    font-style: italic;
-}
-.explanation {
-    font-style: italic;
-}
-abbr {
-    border-bottom: 1px dashed black;
-}
-img.emoji {
-    margin-bottom: -0.25em;
-}
-.forCopyPaste {
-    /* used to add blank lines that we want when copying text to clipboard,
-       but we don't want to see extra whitespace on the screen */
-    margin-top: -1em;
-}
-ul.padded > li {
-    padding: 3px 0;
-}
-
-.gearList .item .stats {
-    font-variant: small-caps;
-}
-.gearList .item .key {
-    display: none;
-}
-
-
-.coloured {
-    display: inline-block;
-    width: 5.5em;
-    height: 3em;
-    padding-top: .7em;
-}
-.colourBrightBlue { background-color: rgb(209,226,248); }
-.colourBlueGrey   { background-color: rgb(216,230,232); }
-.colourGreen      { background-color: rgb(222,237,219); }
-.colourYellow     { background-color: rgb(255,244,216); }
-.colourOrange     { background-color: rgb(254,234,216); }
-.colourRed        { background-color: rgb(250,214,214); }
-.colourDarkRed    { background-color: rgb(240,197,190); }
-
-.neutral {
-    background-color: #fffbd0; /* yellow */
-}
-.danger {
-    background-color: #ffcccc; /* red */
-}
-.safe {
-    background-color: #ccffcc; /* green */
-}
-
-
-/*********************************************************************
-****   Header   ******************************************************
-*********************************************************************/
-h1 {
-    float: left;
-}
-h1>a:first-child { /* "Habitica" link in header */
-    color: black;
-    text-decoration: none;
-}
-h1>a:first-child:hover { /* "Habitica" link in header */
-    text-decoration: underline;
-}
-h1 span {
-    font-size: 0.5em;
-}
-</style>
+<link rel="stylesheet" href="tools.css">
 </head>
 <body><div id="innerBody">
 
@@ -1739,7 +1613,6 @@ h1 span {
         <ul class="padded">
             <li>Please reload the page (but perhaps wait half an hour first in case Habitica is under heavy load).</li>
             <li>If you're using Internet Explorer, try another browser. <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> will be more reliable.</li>
-            <li>If neither of those help, <a href="mailto:lady_alys@oldgods.net">contact me</a>!</li>
         </ul>
     </div>
 </div>

@@ -14,10 +14,11 @@ https://github.com/habitrpg/tools-for-habitica/blob/master/habitrpg_user_data_di
 AND required JavaScript libraries:
 https://github.com/habitrpg/tools-for-habitica/blob/master/js-for-habitrpg_user_data_display.tar.gz
 
-https://oldgods.net/habitrpg/habitrpg_user_data_display.html
+https://tools.habitica.com/habitrpg_user_data_display.html
     or http://is.gd/hrpguserdata
 
 Contributors:
+    Phillip Thelen, phillip@habitica.com https://github.com/phillipthelen
     Alys (Alice Harris), lady_alys@oldgods.net https://github.com/Alys
     thepeopleseason (James Hsiao) https://github.com/thepeopleseason
     goldfndr (Richard Finegold) https://github.com/goldfndr
@@ -185,7 +186,7 @@ var sectionOpen = ''; // holds the ID attribute of a section of the page;
 var hideDropsInDashboard = true; // changes to false as soon as the user
                                  // looks at the drops section, then remains
                                  // false through all future re-fetches
-var tellMe = '<a href="mailto:lady_alys@oldgods.net">tell me</a>';
+var tellMe = '<a href="mailto:admin@habitica.com">tell us</a>';
 
 var weekdayArray = [ "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" ]; // TODO: replace this with momentjs code
 
@@ -248,7 +249,7 @@ if (url_vars.uuid) {
 if (url_vars.sectionOpen) {
     sectionOpen = url_vars.sectionOpen;
     // e.g., to start with the 'Drops Received Today' section open:
-    // https://oldgods.net/habitica/habitrpg_user_data_display.html?sectionOpen=dropsTodaySection&uuid=
+    // https://tools.habitica.com/habitrpg_user_data_display.html?sectionOpen=dropsTodaySection&uuid=
     if (sectionOpen === 'dropsTodaySection') hideDropsInDashboard = false;
 }
 function getUrlVars() {
@@ -991,15 +992,15 @@ function collateAndDisplayTaskData() {
                         "'": '&#39;',
                         "/": '&#x2F;'
                     };
-    var colours = { 1: {'order':1, 'name':'Bright Blue',
-                        'label':       '1) Bright Blue',
-                        'nameNoSpace':    'BrightBlue',
-                        'id':       'colourBrightBlue'
+    var colours = { 1: {'order':1, 'name':'Blue',
+                        'label':       '1) Blue',
+                        'nameNoSpace':    'Blue',
+                        'id':       'colourBlue'
                        },
-                    2: {'order':2, 'name':'Blue Grey',
-                        'label':       '2) Blue Grey',
-                        'nameNoSpace':    'BlueGrey',
-                        'id':       'colourBlueGrey'
+                    2: {'order':2, 'name':'Teal',
+                        'label':       '2) Teal',
+                        'nameNoSpace':    'Teal',
+                        'id':       'colourTeal'
                        },
                     3: {'order':3, 'name':'Green',
                         'label':       '3) Green',
@@ -1021,10 +1022,10 @@ function collateAndDisplayTaskData() {
                         'nameNoSpace':    'Red',
                         'id':       'colourRed'
                        },
-                    7: {'order':7, 'name':'Dark Red',
-                        'label':       '8) Dark Red',
-                        'nameNoSpace':    'DarkRed',
-                        'id':       'colourDarkRed'
+                    7: {'order':7, 'name':'Maroon',
+                        'label':       '8) Maroon',
+                        'nameNoSpace':    'Maroon',
+                        'id':       'colourMaroon'
                        }
                   };
 
@@ -4936,134 +4937,9 @@ function convertTasksToApiV2Format() {
 });
 </script>
 
+<link rel="stylesheet" href="tools.css">
+
 <style>
-
-/*********************************************************************
-****   Page-wide   ***************************************************
-*********************************************************************/
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    background-color: rgb(173, 208, 215);
-}
-#innerBody {
-    margin: 20px;
-    padding: 5px 20px 30px 20px;
-    background-color: rgb(242, 242, 230);
-}
-#loading {
-    margin-right: 30px;
-    margin-left: 30px;
-    color: orange;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-#loading ul {
-    font-size: 0.8em;
-}
-#loading ul a {
-    color: orange;
-}
-#loading .details {
-    font-weight: normal;
-    font-size: 0.8em;
-}
-
-
-.narrowContent {      /* The data should be as wide as the user's window   */
-    max-width: 500px; /* but some explanatory paragraphs should be narrow. */
-}
-
-
-hr {
-    width: 95%;
-}
-hr.padded {
-    margin-top:    1em;
-    margin-bottom: 2em;
-}
-
-.show {
-    display: block;
-}
-.hide {
-    display: none;
-}
-.clear {
-    clear: both;
-}
-
-.subheading {
-    font-weight: bold;
-}
-.highlight {
-    font-weight: bold;
-}
-.lowlight { /* like highlight but less so */
-    font-style: italic;
-}
-.explanation {
-    font-style: italic;
-}
-.errorMessage {
-    color: orange;
-    font-size: 18px;
-    font-weight: bold;
-}
-abbr {
-    border-bottom: 1px dashed black;
-}
-img.emoji {
-    margin-bottom: -0.25em;
-}
-.forCopyPaste {
-    /* used to add blank lines that we want when copying text to clipboard,
-       but we don't want to see extra whitespace on the screen */
-    margin-top: -1em;
-}
-ul.padded > li {
-    padding: 3px 0;
-}
-
-p.taskName, p.taskNote {
-    margin-top:    0.1em;
-    margin-bottom: 0;
-}
-
-.gearList .item .stats {
-    font-variant: small-caps;
-}
-.gearList .item .key {
-    display: none;
-}
-
-
-.coloured {
-    display: inline-block;
-    width: 5.5em;
-    height: 3em;
-    padding-top: .7em;
-}
-.colourBrightBlue { background-color: rgb(209,226,248); }
-.colourBlueGrey   { background-color: rgb(216,230,232); }
-.colourGreen      { background-color: rgb(222,237,219); }
-.colourYellow     { background-color: rgb(255,244,216); }
-.colourOrange     { background-color: rgb(254,234,216); }
-.colourRed        { background-color: rgb(250,214,214); }
-.colourDarkRed    { background-color: rgb(240,197,190); }
-
-.neutral {
-    background-color: #fffbd0; /* yellow */
-}
-.danger {
-    background-color: #ffcccc; /* red */
-    /* background-color: #F5A9A9; */ /* darker red */
-}
-.safe {
-    background-color: #bdd8fc; /* blue */
-    /* green+red and green+yellow are not good for colour-blind people */
-}
-
 
 /*********************************************************************
 ****   Page-wide Show/Hide Toggling   ********************************
@@ -5086,27 +4962,6 @@ p.taskName, p.taskNote {
 }
 .developerData {
     font-family: monospace;
-}
-
-
-/*********************************************************************
-****   Header   ******************************************************
-*********************************************************************/
-h1 {
-    float: left;
-}
-h1>a:first-child { /* "Habitica" link in header */
-    color: black;
-    text-decoration: none;
-}
-h1>a:first-child:hover { /* "Habitica" link in header */
-    text-decoration: underline;
-}
-h1 span {
-    font-size: 0.5em;
-}
-h2 {
-    margin-top: 30px;
 }
 
 #headerExtras .showHideToggle {
@@ -5597,7 +5452,7 @@ ul#tableOfContents > li {
 #missingEquipmentSection table tr.odd.canBuy_yes .sorting_4,
 #missingEquipmentSection table tr.odd.canBuy_yes .sorting_5,
 #missingEquipmentSection table tr.odd.canBuy_yes .sorting_6 {
-    background-color: rgb(242, 242, 230); /* yellowish */
+    background-color: #EEEBF8;
     color: black;
     font-style: normal;
     font-weight: bold;
@@ -5616,8 +5471,7 @@ ul#tableOfContents > li {
 #missingEquipmentSection table tr.odd.canBuy_later .sorting_4,
 #missingEquipmentSection table tr.odd.canBuy_later .sorting_5,
 #missingEquipmentSection table tr.odd.canBuy_later .sorting_6 {
-    background-color: rgb(242, 242, 230) !important; /* yellowish */
-    // background-color: rgb(173, 208, 215); /* bluish */
+    background-color: #EEEBF8 !important;
     color: black;
     font-style: italic;
     font-weight: normal;
@@ -5636,8 +5490,8 @@ ul#tableOfContents > li {
 #missingEquipmentSection table tr.odd.canBuy_no .sorting_4,
 #missingEquipmentSection table tr.odd.canBuy_no .sorting_5,
 #missingEquipmentSection table tr.odd.canBuy_no .sorting_6 {
-    background-color: #E8E8E8; /* pale grey */
-    color: #909090; /* darker grey */
+    background-color: #edecee; /* pale grey */
+    color: #c3c0c7; /* darker grey */
     font-style: italic;
     font-weight: normal;
 }
@@ -5690,7 +5544,7 @@ ul#tableOfContents > li {
 #equipmentRecommendationsSection table tr.odd  .sorting_4,
 #equipmentRecommendationsSection table tr.odd  .sorting_5,
 #equipmentRecommendationsSection table tr.odd  .sorting_6 {
-    background-color: rgb(242, 242, 230); /* yellowish */
+    background-color: #EEEBF8; /* yellowish */
     color: black;
     font-style: normal;
     font-weight: normal;
@@ -5702,8 +5556,8 @@ ul#tableOfContents > li {
 #equipmentRecommendationsSection table .rowLowlight .sorting_4,
 #equipmentRecommendationsSection table .rowLowlight .sorting_5,
 #equipmentRecommendationsSection table .rowLowlight .sorting_6 {
-    background-color: #E8E8E8 !important; /* pale grey */
-    color: #C0C0C0 !important; /* darker grey */
+    background-color: #f9f9f9 !important;
+    color: #c3c0c7 !important;
     font-style: italic !important;
     font-weight: normal !important;
 }
@@ -5714,7 +5568,7 @@ ul#tableOfContents > li {
 #equipmentRecommendationsSection table .rowHighlight .sorting_4,
 #equipmentRecommendationsSection table .rowHighlight .sorting_5,
 #equipmentRecommendationsSection table .rowHighlight .sorting_6 {
-    background-color: rgb(173, 208, 215) !important; /* bluish */
+    background-color: #bda8ff !important; /* bluish */
     color: black !important;
     font-style: normal !important;
     font-weight: bold !important;
@@ -5797,7 +5651,7 @@ ul#tableOfContents > li {
                 <li>Reload the page and then check that your <a href="https://habitica.com/user/settings/api">User ID and API Token</a> are correct.</li>
                 <li>Click the "Fetch My Data" button a few times, waiting after each click to see if the error goes away. If this fixes the problem, then the error had been caused by <a href="https://github.com/HabitRPG/habitica/issues/12383">this bug in Habitica</a>.</li>
                 <li>If you're using Internet Explorer, try another browser. <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> will be more reliable.</li>
-                <li>If the page's URL starts with "http://" change it to start with "https://" (or just use <a href="https://oldgods.net/habitrpg/habitrpg_user_data_display.html">this correct link</a>).</li>
+                <li>If the page's URL starts with "http://" change it to start with "https://" (or just use <a href="https://tools.habitica.com/habitrpg_user_data_display.html">this correct link</a>).</li>
                 <li>If none of those help, contact me! See <strong>"Help and Contact Details"</strong> at the bottom of this page.</li>
             </ul>
         </div>
@@ -5820,12 +5674,12 @@ ul#tableOfContents > li {
             <li>Features:
                 <ul>
 					<li>Renamed the <strong>Habit History</strong> section to <strong>Habit History List</strong>.</li>
-					<li>Added the <strong>Habit History Table</strong> section from <a href="https://github.com/habitrpg/tools-for-habitica/pull/62">PR 62 by BlakeTNC</a>. (I changed the "chart" terminology from that PR to "table" because "chart" was already used by the Habit Trends section.)</li>
+					<li>Added the <strong>Habit History Table</strong> section by BlakeTNC. (I changed the "chart" terminology from that PR to "table" because "chart" was already used by the Habit Trends section.)</li>
                 </ul>
             </li>
             <li>Code:
                 <ul>
-					<li>Renamed function formatDateFromUTC to formatIsoDateString (from <a href="https://github.com/habitrpg/tools-for-habitica/pull/62">PR 62 by BlakeTNC</a>).</li>
+					<li>Renamed function formatDateFromUTC to formatIsoDateString (by BlakeTN).</li>
 					<li>Renamed function habitHistory to habitHistoryList.</li>
                 </ul>
             </li>
@@ -5844,7 +5698,7 @@ ul#tableOfContents > li {
         <dd><ul>
             <li>Bug fix:
                 <ul>
-                    <li>In the <strong>Dailies History</strong> section, <a href="https://github.com/BlakeTNC">BladeTNC / Tenali</a> has written a fix that may stop the wrong dates being shown for some people. If you still experience a problem with this section, please email Alys at <a href="mailto:lady_alys@oldgods.net">lady_alys@oldgods.net</a>.
+                    <li>In the <strong>Dailies History</strong> section, <a href="https://github.com/BlakeTNC">BladeTNC / Tenali</a> has written a fix that may stop the wrong dates being shown for some people.
                         <ul>
                             <li>Note that the days of the weeks may not match the dates. This is a known problem and should be fixed soon. You do not need to report it.</li>
                         </ul>
@@ -6155,7 +6009,7 @@ ul#tableOfContents > li {
         <dd><ul>
             <li>Feature:
                 <ul>
-                    <li>The completed To Do's section now shows all completed To Do's. This might result in the tool being slower for some people. If it causes significant problems, <a href="mailto:lady_alys@oldgods.net">email Alys</a>.</li>
+                    <li>The completed To Do's section now shows all completed To Do's. This might result in the tool being slower for some people.
                 </ul>
             </li>
         </ul></dd>
@@ -6295,7 +6149,7 @@ ul#tableOfContents > li {
         <dd><ul>
             <li>Features:
                 <ul>
-                    <li>For people who are <strong>NOT</strong> using a <a href="habitica.wikia.com/wiki/Custom_Day_Start">Custom Day Start (CDS)</a> (i.e., CDS is zero), Dailies using the new <strong>Every X Days</strong> repeat and/or the new <strong>Start Date</strong> feature should now be correctly reported as due or not due, and the estimates of damage caused by incomplete Dailies should be correct. However, please be cautious when using that information for a few days, until you are confident it is accurate for your account. Please <a href="mailto:lady_alys@oldgods.net">tell me</a> if you notice errors.</li>
+                    <li>For people who are <strong>NOT</strong> using a <a href="habitica.wikia.com/wiki/Custom_Day_Start">Custom Day Start (CDS)</a> (i.e., CDS is zero), Dailies using the new <strong>Every X Days</strong> repeat and/or the new <strong>Start Date</strong> feature should now be correctly reported as due or not due, and the estimates of damage caused by incomplete Dailies should be correct. However, please be cautious when using that information for a few days, until you are confident it is accurate for your account.
                     <li>For people who are using a <strong>Custom Day Start that is not zero</strong>, Dailies using the new <strong>Every X Days</strong> repeat might not be reported correctly. Dailies of any kind with a <strong>Start Date</strong> of today or tomorrow might not be reported correctly. The estimate of damage caused by those Dailies might not be correct. You do not need to report these problems to me. There's a bug in HabitRPG itself that is causing Start Dates to not be handled correctly when a CDS is used, and we need to sort that out before the Data Display Tool can be accurate.</li>
                     <li>In case you are not sure whether you are using a <strong>Custom Day Start</strong>, an orange message across the top of the page will tell you if you are and will warn you about the potential problems.</li>
                     <li>In the <strong>Task Overview</strong> section, for Dailies, the "task" column now shows the value for the "Every X days" option. It shows the start date if the Daily starts after today.</li>
@@ -6605,7 +6459,7 @@ ul#tableOfContents > li {
             </li>
             <li>Code:
                 <ul>
-                    <li>Fixed (probably) a bug that was preventing most of the links from being used on iOS devices (iPads, etc). If you're still having trouble on your device, <a href="mailto:lady_alys@oldgods.net">tell me</a>!</li>
+                    <li>Fixed (probably) a bug that was preventing most of the links from being used on iOS devices (iPads, etc).
                 </ul>
             </li>
         </ul></dd>
@@ -6623,7 +6477,7 @@ ul#tableOfContents > li {
             <li>Features:
                 <ul>
                     <li>"Official". :)</li>
-                    <li>Changed colour scheme to work better for most forms of colour-blindness. The previous red-green-yellow scheme was failing for red-green blindness and green-red blindness. <a href="mailto:lady_alys@oldgods.net">Tell me</a> if you still have problems distinguishing between colours in the dashboard or in the Dailies History section.</li>
+                    <li>Changed colour scheme to work better for most forms of colour-blindness. The previous red-green-yellow scheme was failing for red-green blindness and green-red blindness.
                 </ul>
             </li>
         </ul></dd>
@@ -6631,7 +6485,7 @@ ul#tableOfContents > li {
         <dd><ul>
             <li>Code:
                 <ul>
-                    <li>Fixed (probably) a bug related to HabitRPG's <a href="http://habitica.wikia.com/wiki/Settings#Custom_Day_Start">Custom Day Start</a> (CDS) feature. If you use a CDS, then you would have found that after midnight, the <span class="subheading">Dailies Incomplete</span> and <span class="subheading">Damage from Dailies</span> sections were incorrect - they were ignoring your CDS. I think I have fixed this now. Please <a href="mailto:lady_alys@oldgods.net">tell me</a> if it still seems wrong! @It's Bailey, thanks for mentioning this.</li>
+                    <li>Fixed (probably) a bug related to HabitRPG's <a href="http://habitica.wikia.com/wiki/Settings#Custom_Day_Start">Custom Day Start</a> (CDS) feature. If you use a CDS, then you would have found that after midnight, the <span class="subheading">Dailies Incomplete</span> and <span class="subheading">Damage from Dailies</span> sections were incorrect - they were ignoring your CDS. I think I have fixed this now. @It's Bailey, thanks for mentioning this.</li>
                     <li>Fixed a bug in the <span class="subheading">Dailies History</span> section that caused each date to be one day later than it should have been. Thanks, @rami.sedhom, for letting me know!</li>
                 </ul>
             </li>
@@ -6733,7 +6587,7 @@ ul#tableOfContents > li {
             </li>
             <li>Code:
                 <ul>
-                    <li>Large changes to the code to place each section of the page in its own function, dramatically tighten scope, reduce DOM updates, and remove some cached display errors that were happening on refetch. If you find anything working differently than expected, you can compare it with <a href="https://oldgods.net/habitrpg/habitrpg_user_data_display_1_8_4.html">the old version  (1.8.4)</a>. Please <a href="mailto:lady_alys@oldgods.net">tell me</a> about any problems!</li>
+                    <li>Large changes to the code to place each section of the page in its own function, dramatically tighten scope, reduce DOM updates, and remove some cached display errors that were happening on refetch. If you find anything working differently than expected, you can compare it with <a href="https://tools.habitica.com/habitrpg_user_data_display_1_8_4.html">the old version  (1.8.4)</a>.
                 </ul>
             </li>
         </ul></dd>
@@ -7078,7 +6932,7 @@ ul#tableOfContents > li {
             <li><span class="subheading">Tasks Untagged</span>: If you have any Habits, Dailies, To Do's, or Rewards that have not been <a href="http://habitica.fandom.com/wiki/Tags">tagged</a> they will be listed. This will be useful to you only if you prefer to tag all your tasks and are looking for any you have missed. This section is shown only if you have untagged tasks.</li>
             <li><span class="subheading">Habit Trends</span>: An interactive chart that provides a visual representation of the trends in your Habits. It gives you an idea of which Habits you are reinforcing, and which are being neglected.</li>
             <li><span class="subheading">Habit History List</span> (previously <span class="subheading">Habit History</span>): This shows some of the dates and times you recently clicked on your Habits. But note the disclaimer you'll see at the top of the list! Most of your clicks can not be shown.</li>
-            <li><span class="subheading">Habit History Table</span> (created by <a href="https://github.com/habitrpg/tools-for-habitica/pull/62">BlakeTNC</span>): This shows summarised information from the Habit History List section, in a tablular format.</li>
+            <li><span class="subheading">Habit History Table</span> (created by BlakeTNC): This shows summarised information from the Habit History List section, in a tablular format.</li>
             <li><span class="subheading">Dailies History</span>: A spreadsheet-like view showing the days on which you did and did not tick off your Dailies.</li>
             <li><span class="subheading">Dailies Incomplete</span>: A list of Dailies scheduled for today that you have not yet completed, and the estimated damage you will take from each one. It also has a separate list of <a href="http://habitica.fandom.com/wiki/Dailies#Grey_Dailies">Grey Dailies</a> that have not been completed (you don't need to do those today, but you might want to for extra rewards).</li>
             <li><span class="subheading">To Do's with Dates</span>: A list of all To Do's that have been given due dates, sorted by date. If there are any To Do's due today or overdue, a red tile will appear in the dashboard to tell you how many there are. This section is shown only if you have dated To Do's.</li>
@@ -7122,7 +6976,7 @@ ul#tableOfContents > li {
             <li><a href="habitrpg_user_data_display.html?sectionOpen=skillsAndBuffsSection&uuid=">Skills and Buffs</a></li>
             <li><a href="habitrpg_user_data_display.html?sectionOpen=subscriptionDataSection&uuid=">Subscription Data</a></li>
         </ul>
-        <p>To have your User ID specified automatically as well, click on one of those links, then edit the URL in your browser's address bar to add your User ID at the end, then bookmark that. For example, if your User ID is <em>12345678-90ab-40a4-cdef-1234567890ab</em> and you want the "Task Overview" section to be open when you log in, you would bookmark this URL: <br /><em>https://oldgods.net/habitica/habitrpg_user_data_display.html?sectionOpen=taskOverviewSection&uuid=12345678-90ab-40a4-cdef-1234567890ab</em></p>
+        <p>To have your User ID specified automatically as well, click on one of those links, then edit the URL in your browser's address bar to add your User ID at the end, then bookmark that. For example, if your User ID is <em>12345678-90ab-40a4-cdef-1234567890ab</em> and you want the "Task Overview" section to be open when you log in, you would bookmark this URL: <br /><em>https://tools.habitica.com/habitrpg_user_data_display.html?sectionOpen=taskOverviewSection&uuid=12345678-90ab-40a4-cdef-1234567890ab</em></p>
 
         <h2>Possible Future Features</h2>
         <ul>

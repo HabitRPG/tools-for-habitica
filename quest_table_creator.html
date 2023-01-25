@@ -10,7 +10,7 @@ This page outputs the wikia code for creating tables displaying quest informatio
 
 It's primarily written for the English language wiki (http://habitica.fandom.com/wiki/)
 but can also be used for other languages by specifying the language code in the URL like this:
-    https://oldgods.net/habitrpg/quest_table_creator.html?language=en
+    https://tools.habitica.com/quest_table_creator.html?language=en
 That will cause Habitica's official content translations to be used.
 
 For texts inserted by this page (e.g., table headers), additional
@@ -20,16 +20,16 @@ translations need to be added to these objects in this file:
  - templateNamesForLanguage
  - rewardPageUrls
 For some languages, `wikiPageNameCorrections` and `reverseTextForLanguage` might also need to be edited.
-Contact Alys (details below) if you'd like to provide translations for your language.
 
 This code is licenced under the same terms as Habitica:
     https://raw2.github.com/HabitRPG/habitrpg/develop/LICENSE
 
 https://github.com/habitrpg/tools-for-habitica/blob/master/quest_table_creator.html
 
-https://oldgods.net/habitrpg/quest_table_creator.html
+https://tools.habitica.com/quest_table_creator.html
 
 Contributors:
+    Phillip Thelen, phillip@habitica.com https://github.com/phillipthelen
     Alys (Alice Harris), lady_alys@oldgods.net
     Jazzis (Yuri Mashukov), jazzis18@gmail.com (Russian translation and code improvements)
     Ender_Kerman (https://github.com/EnderKerman) (Chinese translation and code improvements)
@@ -489,9 +489,9 @@ var reverseTextForLanguage = {
 
 var translationInstructions =    // Do not translate this into other languages. It's displayed only in the English version of the page.
     '<h3>Translations for Non-English Wikis</h3>' +
-    '<p>If you would like to use this tool to create the tables for your own language\'s version of the wiki, add your language\'s code to the URL. For example, for the Russian ("ru") version you would use this URL:<br /><a href="https://oldgods.net/habitrpg/quest_table_creator.html?language=ru">https://oldgods.net/habitrpg/quest_table_creator.html?<strong>language=ru</strong></a><br />Habitica\'s official translations will then be used by this page. Some additional strings will need to be translated too (e.g., for the table headings) so contact Alys at lady_alys@oldgods.net to discuss that.</p>'
+    '<p>If you would like to use this tool to create the tables for your own language\'s version of the wiki, add your language\'s code to the URL. For example, for the Russian ("ru") version you would use this URL:<br /><a href="https://tools.habitica.com/quest_table_creator.html?language=ru">https://tools.habitica.com/quest_table_creator.html?<strong>language=ru</strong></a><br />Habitica\'s official translations will then be used by this page.</p>'
     // '<p>So far support exists for the languages below but others can be added!</p>' +
-    // '<ul><li><a href="https://oldgods.net/habitrpg/quest_table_creator.html?language=ru">Russian</a></li></ul>'
+    // '<ul><li><a href="https://tools.habitica.com/quest_table_creator.html?language=ru">Russian</a></li></ul>'
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -1259,7 +1259,7 @@ function parseData() {
         }
     }
     if (rageEffectCodeNeeded) {
-        latestQuestUpdatesNeeded += '<strong>IMPORTANT: Please go to the <a href="https://habitica.com/groups/guild/9a163b28-ebcf-4e52-87de-5c040ed0f8f8">Wizards of the Wiki</a> guild and post this message:</strong><br /><blockquote>@alys ' + rageEffectCodeNeeded + '</blockquote><br /><br /><br />';
+        latestQuestUpdatesNeeded += '<strong>IMPORTANT: Please go to the <a href="https://habitica.com/groups/guild/9a163b28-ebcf-4e52-87de-5c040ed0f8f8">Wizards of the Wiki</a> guild and post this message:</strong><br /><blockquote>' + rageEffectCodeNeeded + '</blockquote><br /><br /><br />';
     }
 
     var questTableHeader = '' +
@@ -1292,10 +1292,6 @@ function parseData() {
     } );
 
     var htmlEnd = '';
-    if (releaseDateNeeded) {
-        htmlEnd  += '<p>NOTES FOR ALYS:<br />Need release date:<br />' + releaseDateNeeded + '</p>';
-
-    }
     if (warnings) htmlEnd += '<p>WARNING:<br />' + warnings + '</p>';
     if (false) { // FOR TESTING
         htmlEnd += "<p>The material below here is Habitica's JSON data that" +
@@ -1327,7 +1323,7 @@ function parseData() {
         '<li>Quest scroll images will always look broken in the HTML table here, but will work on the wiki.</li>' +
         '<li>Sorting won\'t always work correctly in the HTML table here, but will work on the wiki.</li>' +
 
-        '<li>Any information pulled straight from Habitica should be correct. Any information that Alys had to write code to calculate might be wrong. Any bugs can be easily fixed.</li>' +
+        '<li>Any information pulled straight from Habitica should be correct. Any bugs can be easily fixed.</li>' +
 
         '</ul>' +
 
@@ -1557,131 +1553,8 @@ function getTemplateName(key) {
 });
 </script>
 
+<link rel="stylesheet" href="tools.css">
 <style>
-/*********************************************************************
-****   Page-wide   ***************************************************
-*********************************************************************/
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    background-color: rgb(173, 208, 215);
-}
-#innerBody {
-    margin: 20px;
-    padding: 5px 20px 30px 20px;
-    background-color: rgb(242, 242, 230);
-}
-#loading {
-    margin-right: 30px;
-    margin-left: 30px;
-    color: orange;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-#loading ul {
-    font-size: 0.8em;
-}
-#loading ul a {
-    color: orange;
-}
-
-
-hr {
-    width: 95%;
-}
-hr.padded {
-    margin-top:    1em;
-    margin-bottom: 2em;
-}
-
-.show {
-    display: block;
-}
-.hide {
-    display: none;
-}
-.clear {
-    clear: both;
-}
-
-.subheading {
-    font-weight: bold;
-}
-.highlight {
-    font-weight: bold;
-}
-.lowlight { /* like highlight but less so */
-    font-style: italic;
-}
-.explanation {
-    font-style: italic;
-}
-abbr {
-    border-bottom: 1px dashed black;
-}
-img.emoji {
-    margin-bottom: -0.25em;
-}
-.forCopyPaste {
-    /* used to add blank lines that we want when copying text to clipboard,
-       but we don't want to see extra whitespace on the screen */
-    margin-top: -1em;
-}
-ul.padded > li {
-    padding: 3px 0;
-}
-
-.gearList .item .stats {
-    font-variant: small-caps;
-}
-.gearList .item .key {
-    display: none;
-}
-
-
-.coloured {
-    display: inline-block;
-    width: 5.5em;
-    height: 3em;
-    padding-top: .7em;
-}
-.colourBrightBlue { background-color: rgb(209,226,248); }
-.colourBlueGrey   { background-color: rgb(216,230,232); }
-.colourGreen      { background-color: rgb(222,237,219); }
-.colourYellow     { background-color: rgb(255,244,216); }
-.colourOrange     { background-color: rgb(254,234,216); }
-.colourRed        { background-color: rgb(250,214,214); }
-.colourDarkRed    { background-color: rgb(240,197,190); }
-
-.neutral {
-    background-color: #fffbd0; /* yellow */
-}
-.danger {
-    background-color: #ffcccc; /* red */
-}
-.safe {
-    background-color: #ccffcc; /* green */
-}
-
-
-/*********************************************************************
-****   Header   ******************************************************
-*********************************************************************/
-h1 {
-    float: left;
-}
-h1>a:first-child { /* "Habitica" link in header */
-    color: black;
-    text-decoration: none;
-}
-h1>a:first-child:hover { /* "Habitica" link in header */
-    text-decoration: underline;
-}
-h1 span {
-    font-size: 0.5em;
-}
-
-
 /*********************************************************************
 ****   Header   ******************************************************
 *********************************************************************/
@@ -1714,7 +1587,6 @@ th em {
         <ul class="padded">
             <li>Please reload the page (but perhaps wait half an hour first in case Habitica is under heavy load).</li>
             <li>If you're using Internet Explorer, try another browser. <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> will be more reliable.</li>
-            <li>If neither of those help, <a href="mailto:lady_alys@oldgods.net">contact me</a>!</li>
         </ul>
     </div>
 </div>
@@ -1731,7 +1603,7 @@ th em {
 {{:Template:Quest_Table_Quest_Lines}}
 
 <noinclude>
-Do not edit this table by hand. Instead, use the "Quest Lines" section in the [https://oldgods.net/habitrpg/quest_table_creator.html Quest Table Creator], which will read the latest "content" data from Habitica and create all the required wikia code. Delete everything below this "noinclude" tag and replace it with that code.
+Do not edit this table by hand. Instead, use the "Quest Lines" section in the [https://tools.habitica.com/quest_table_creator.html Quest Table Creator], which will read the latest "content" data from Habitica and create all the required wikia code. Delete everything below this "noinclude" tag and replace it with that code.
 [[Category:Template Tables| ]][[Category:Habitica Templates]]
 </noinclude>
 -->

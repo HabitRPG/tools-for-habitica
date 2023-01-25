@@ -12,7 +12,7 @@ Next, retrieve the emoji images from Henrik Joreteg's project,
 
 ### Ensure page behaves normally with your API information
 
-Using your user id and api token, ensure the page loads correctly and behaves exactly like oldgods.net. Resolve any
+Using your user id and api token, ensure the page loads correctly and behaves exactly like tools.habitica.com. Resolve any
 missing assets and ensure no errors exist in your browser's developer console.
 
 You may need to add a `null.htm` file, and you may doing so by simply creating an empty file named `null.htm` in
