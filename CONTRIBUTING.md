@@ -29,11 +29,11 @@ There are 4 TST sections on the main page. The first is a set of script tags whi
 * A series of `<script>` tags
     * [jquery-mockjax](https://github.com/jakerella/jquery-mockjax)
         * A library for mocking ajax requests.
-        * Enables test data to be substituted in without actually communicating with HabitRPG.
+        * Enables test data to be substituted in without actually communicating with Habitica.
         * No login necessary for every refresh
     * Testdata files
         * Each file sets a variable containing a long JSON string
-        * These strings will inevitably fall out of date, and should be updated as changes are made to HabitRPG
+        * These strings will inevitably fall out of date, and should be updated as changes are made to Habitica
     * Contributors are encouraged to create their own testdata files which may be composed with the existing sets.
 * JS Mocks
     * Here is where the actual mocking of ajax requests occurs, as well as the auto-fetch of user data (to avoid

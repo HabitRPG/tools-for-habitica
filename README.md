@@ -21,7 +21,7 @@ language code to the end of the URL (ex. `?language=ru`).
 
 --------------------------------------------
 
-`habitrpg_user_data_display.html`
+`habitica_user_data_display.html`
 
 A stand-alone JavaScript-enabled web page that reads a user's data and
 displays such things as an unallocated points reminder, limited habit
