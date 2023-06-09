@@ -17,7 +17,7 @@ and [Enchanted Armoire](https://habitica.fandom.com/wiki/Enchanted_Armoire) on t
 Habitica Wiki.
 
 The tool works with languages other than English by appending `?language=` and the 
-language code to the end of the URL (ex. `?language=ru`).
+language code to the end of the URL (ex. `?language=uk`).
 
 --------------------------------------------
 
@@ -40,7 +40,7 @@ and [Enchanted Armoire](https://habitica.fandom.com/wiki/Enchanted_Armoire) on t
 Habitica Wiki.
 
 The tool works with languages other than English by appending `?language=` and the 
-language code to the end of the URL (ex. `?language=ru`).
+language code to the end of the URL (ex. `?language=uk`).
 
 --------------------------------------------
 
