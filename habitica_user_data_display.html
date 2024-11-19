@@ -7,7 +7,7 @@
 
 <!--
 
-This code is licenced under the same terms as Habitica:
+This code is licensed under the same terms as Habitica:
     https://raw.githubusercontent.com/HabitRPG/habitica/develop/LICENSE
 
 https://github.com/habitrpg/tools-for-habitica/blob/master/habitica_user_data_display.html
@@ -15,9 +15,9 @@ AND required JavaScript libraries:
 https://github.com/habitrpg/tools-for-habitica/blob/master/js-for-habitica_user_data_display.tar.gz
 
 https://tools.habitica.com/habitica_user_data_display.html
-    or http://is.gd/hrpguserdata
 
 Contributors:
+    Kalista Payne, sabe@habitica.com https://github.com/SabreCat
     Natalie Luhrs, natalie@habitica.com https:/github.com/CuriousMagpie
     Phillip Thelen, phillip@habitica.com https://github.com/phillipthelen
     Alys (Alice Harris), lady_alys@oldgods.net https://github.com/Alys
@@ -4583,10 +4583,10 @@ function subscriptionData() {
 
         if (plan.consecutive) {
             if (typeof plan.consecutive.gemCapExtra !== 'undefined') {
-                var total = 25 + plan.consecutive.gemCapExtra;
+                var total = 24 + plan.consecutive.gemCapExtra;
                 table += '<tr><td>Total Monthly Gem Cap</td><td>' +
                          total +
-                         ' (the base 25 per month + ' +
+                         ' (the base 24 per month + ' +
                          plan.consecutive.gemCapExtra + ' extra)</td></tr>\n';
             }
 
@@ -4985,7 +4985,7 @@ ul#tableOfContents > li {
 ****   Specific Sections   *******************************************
 *********************************************************************/
 #MAIN > * {
-    display: none; // all sections hidden by default
+    display: none; /* all sections hidden by default */
 }
 
 
@@ -5293,8 +5293,6 @@ ul#tableOfContents > li {
 #missingEquipmentSection .gearList .item .name {
     font-weight: bold;
 }
-#missingEquipmentSection .gearList .item .extra {
-}
 
 #missingEquipmentSection table {
     border-spacing: 0;
@@ -5387,8 +5385,6 @@ ul#tableOfContents > li {
 }
 #equipmentRecommendationsSection #allEquipmentIsShowing {
     display: none;
-}
-#equipmentRecommendationsSection #onlyBestIsShowing {
 }
 #equipmentRecommendationsSection table tr td {
     border-bottom: 1px solid lightgrey;
